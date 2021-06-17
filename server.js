@@ -1,15 +1,13 @@
 const http = require('http');
 const Koa = require('koa');
 const koaBody = require('koa-body');
-const Router = require('koa-router');
 const app = new Koa();
 const port = process.env.PORT || 7070;
-const server = http.createServer(app.callback()).listen(port)
+
 app.use(koaBody({
     urlencoded: true,
     multipart: true,
 }));
-const router = new Router()
 
 const list = [
     { name: "vasya", lastName: "Merzlyakov" },
@@ -37,4 +35,4 @@ app.use(async (ctx) => {
 });
 
 
-const server = http.createServer(app.callback()).listen(7070);
+const server = http.createServer(app.callback()).listen(port)
